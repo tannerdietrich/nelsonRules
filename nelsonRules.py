@@ -81,8 +81,8 @@ def plot_rules(data, chart_type=1):
         axs = axs.ravel()
 
         for i in range(len(columns)):
-           axs[i].plot(data.ix[:, 0])
-           axs[i].plot(data.ix[:, 0][(data.ix[:, i+1] == True)], 'ro')
+           axs[i].plot(data.iloc[:, 0])
+           axs[i].plot(data.iloc[:, 0][(data.iloc[:, i+1] == True)], 'ro')
            axs[i].set_title(columns[i])
 
         return fig
@@ -91,13 +91,13 @@ def plot_rules(data, chart_type=1):
         # plot_num = len(data.columns[1:])
         fig = plt.figure(figsize=(20, 10))
         axs = fig.add_subplot(111)
-        axs.plot(data.ix[:, 0])
+        axs.plot(data.iloc[:, 0])
 
         marker = ['H', '+', '.', 'o', '*', '<', '>', '^']
         columns = data.columns[1:]
 
         for i in range(len(data.columns[1:])):
-            axs.plot(data.ix[:, 0][(data.ix[:, i+1] == True)], ls='', marker=marker[i], markersize=20, label=columns[i])
+            axs.plot(data.iloc[:, 0][(data.iloc[:, i+1] == True)], ls='', marker=marker[i], markersize=20, label=columns[i])
 
         plt.legend()
 
